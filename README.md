@@ -44,8 +44,6 @@ Check out the list of books and the shopping cart wire frame. Look for elements 
 
 - Don't get fooled by the number of features. A lot is taken care of by the view and use of build-in Angular directives. The javascript part is only about 15 lines of code. 
   
-####Bonus
-
 - Add item quantity to the shopping cart. Adding the same book multiple times should increase the item quantity accordingly.
 
 **Hints:**
@@ -61,6 +59,10 @@ Before adding a book, you need to find out if it's already in the cart, and if s
 
 http://underscorejs.org/ comes in handy for 'ruby like' manipulation of collections / arrays.
 
+**Bonus**
+
+- Add a 'remove from cart button' that will remove a book from the cart.
+- Add a way to rate books using a 5 star scale.
 
 
 
