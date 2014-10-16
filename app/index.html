@@ -12,9 +12,12 @@
 
 <body>
    <div ng-controller="bookly.BooksController" class="container">
-      <h4>[[ search box and 'order by' drop down go here]]</h4>
+      Search: <input ng-model="searchText">
+      Order by: <select ng-model="byField" ng-options="fChoice.name for fChoice in fChoices"></select>
       <div class="row">
-        <div class="col-xs-4 col-sm-4 col-md-3 col-lg-2 book" ng-repeat="book in books">
+        <div  class="col-xs-4 col-sm-4 col-md-3 col-lg-2 book"
+              ng-repeat="book in books | filter:searchBothTitleAndAuthor(searchText) |
+              orderBy:byField.field">
           <div class="col-xs-offset-1 book-title">
             {{book.title}}
           </div>
@@ -43,7 +46,7 @@
             <th width='40%'>Author</th>
             <th width='20%'>Price</th>
           </tr>
-          <tr ng-repeat="book in cart">
+          <tr ng-repeat="book in cart track by $index">
             <td width='40%'>{{book.title}}</td>
             <td width='40%'>{{book.author}}</td>
             <td width='20%'>{{book.price}}</td>

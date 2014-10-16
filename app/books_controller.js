@@ -24,4 +24,22 @@ bookly.BooksController = function($scope) {
   	$scope.cart = [];
   }
 
+  $scope.searchBothTitleAndAuthor = function(query) {
+  	return function(book) {
+  		if (!query) { return true; }
+  		var title = book.title.toLowerCase();
+  		var author = book.author.toLowerCase();
+  		var q = query.toLowerCase();
+  		return ((title.match(q)) || (author.match(q)));
+  	};
+  };
+
+  $scope.fChoices = [
+  	{name: 'Title', field: 'title'},
+  	{name: 'Author', field: 'author'},
+  	{name: 'Price', field: 'price'}
+  ];
+
+  $scope.byField = $scope.fChoices[0];
+
 };
